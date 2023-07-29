@@ -1,17 +1,17 @@
 import React from "react";
 import './_watchscreen.scss';
-import {Col} from "react-bootstrap";
-import videoHorizontal from "../../Components/videoHorizontal/videoHorizontal";
+import {Col,Row} from "react-bootstrap";
+import VideoHorizontal from "../../Components/videoHorizontal/videoHorizontal";
 import VideoMetaData from "../../Components/videoMetaData/videoMetaData";
 import Comments from "../../Components/comments/Comments";
 const WatchScreen=()=>{
 return (
-  <>
-    <Col Lg={8}>
+  <Row>
+    <Col lg={8}>
       <div className="watchScreen__player">
         <iframe
           src="https://www.youtube.com/watch?v=Mos5QJAje28"
-          frameBorder="0"
+          
           title="MY VIDEO"
           allowFullScreen
           width="100%"
@@ -21,12 +21,12 @@ return (
       <VideoMetaData />
       <Comments/>
     </Col>
-    <Col Lg={4}>
-      { [...Array(20)].map(() => (
-        <videoHorizontal/>
+    <Col lg={4}>
+      { [...Array(0)].map(() => (
+       <VideoHorizontal/>
       )) }
     </Col>
-  </>
+ </Row>
 );
 }
 export  default WatchScreen;
