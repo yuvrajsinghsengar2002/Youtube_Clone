@@ -11,7 +11,7 @@ return (
       <div className="watchScreen__player">
         <iframe
           src="https://www.youtube.com/watch?v=Mos5QJAje28"
-          
+          frameBorder="0%"
           title="MY VIDEO"
           allowFullScreen
           width="100%"
