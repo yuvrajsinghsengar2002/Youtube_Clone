@@ -54,3 +54,32 @@ export const getVideosByCategory = (keyword) => async (dispatch,getState) => {
     dispatch(videoActions.home_video_fails(error.message));
   }
 };
+
+export const getVideoById =(id) => async (dispatch,getState)=>{
+try{
+  dispatch({
+    type:"Selected_video_request"
+  })
+  const {data}=await request("/videos",{
+    params:{
+      part:'snippet,statistics',
+      id:id
+    }
+  })
+  console.log(data);
+  dispatch({
+    type:"Selected_video_success",
+    payload:data.items[0]
+  })
+
+
+}catch(error){
+   console.log(error.message);
+   dispatch({
+    type:"Selected_video_failed",
+    payload:error.message
+
+   })
+}
+
+} 

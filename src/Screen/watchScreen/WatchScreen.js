@@ -4,13 +4,16 @@ import {Col,Row} from "react-bootstrap";
 import VideoHorizontal from "../../Components/videoHorizontal/videoHorizontal";
 import VideoMetaData from "../../Components/videoMetaData/videoMetaData";
 import Comments from "../../Components/comments/Comments";
+import { useParams } from "react-router-dom";
 const WatchScreen=()=>{
+const {id}=useParams();
+
 return (
   <Row>
     <Col lg={8}>
       <div className="watchScreen__player">
         <iframe
-          src="https://www.youtube.com/watch?v=Mos5QJAje28"
+          src={`https://www.youtube.com/embed/${id}`}
           frameBorder="0%"
           title="MY VIDEO"
           allowFullScreen
@@ -22,7 +25,7 @@ return (
       <Comments/>
     </Col>
     <Col lg={4}>
-      { [...Array(0)].map(() => (
+      { [...Array(5)].map(() => (
        <VideoHorizontal/>
       )) }
     </Col>
