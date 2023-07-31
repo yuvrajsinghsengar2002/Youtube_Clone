@@ -32,9 +32,10 @@ const VideoHorizontal=({video,searchScreen,subScreen})=>{
         setDuration(items[0].contentDetails.duration);
         setViews(items[0].statistics.viewCount);
       };
-     {
-         isVideo && get_video_details();
-     }
+      if(isVideo)
+      {
+        get_video_details()
+      }
     }, [id,isVideo]);
 
     useEffect(() => {

@@ -21,7 +21,6 @@ import channelSlice from "./reducers/channel-slice";
 import commentsSlice from "./reducers/comments-slice";
 import relatedvideoslice from "./reducers/relatedVideo-slice";
 import searchvideoslice from "./reducers/searchVideo-slice";
-import subscribedChannelslice from "./reducers/subscribedChannels-slice";
 import {configureStore} from "@reduxjs/toolkit"
 const store= configureStore({
   reducer:{
@@ -32,7 +31,7 @@ const store= configureStore({
     comments:commentsSlice.reducer,
     relatedVideos:relatedvideoslice.reducer,
     searchvideos:searchvideoslice.reducer,
-    subscribedChannel:subscribedChannelslice.reducer,
+    
   }
 })
 

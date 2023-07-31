@@ -3,7 +3,6 @@ import { videoActions } from "../reducers/video-slice";
 import { playingvideoActions} from "../reducers/playingvideo-slice"
 import {relatedVideoActions} from "../reducers/relatedVideo-slice"
 import { searchVideoActions } from "../reducers/searchVideo-slice";
-import { subscribedChannelActions } from "../reducers/subscribedChannels-slice";
 export const getPopularVideo =()=> async (dispatch,getState)=>{
     try{
     dispatch(videoActions.home_video_request());
@@ -122,25 +121,3 @@ export const getVideosBySearch = (keyword) => async (dispatch) => {
   }
 };
 
-export const getSubscribedChannel = (id) => async (dispatch, getState) => {
-  try {
-     dispatch(subscribedChannelActions.subscribed_channel_request())
-    const { data } = await request("/subscriptions", {
-      params: {
-        part: "snippet,contentDetails",
-        mine: true,
-      },
-      headers: {
-        Authorization: `Bearer ${getState().auth.accessToken}`,
-      },
-    });
-    console.log(data);
-    dispatch(
-      subscribedChannelActions.subscribed_channel_success(data.items)
-    );
-  } catch (error) {
-    dispatch(
-      subscribedChannelActions.subscribed_channel_fail(error.response.data));
-    console.log(error.response.data);
-  }
-};
