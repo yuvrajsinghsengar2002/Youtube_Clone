@@ -8,6 +8,8 @@ import { Container } from 'react-bootstrap';
 import './_app.scss';
 import { useSelector } from 'react-redux';
 import WatchScreen from './Screen/watchScreen/WatchScreen';
+import SearchScreen from './Screen/screen';
+import SubscriptionScreen from './Screen/subscriptionScreen/subscription';
 const Layout =({children})=>{
     const [sidebar, toggleSidebar] = useState(false);
     const handleToggleSidebar = () => toggleSidebar((value) => !value);
@@ -77,10 +79,20 @@ const App =()=>{
         <Route path="/auth" element={<LoginScreen />}></Route>
 
         <Route
-          path="/search"
+          path="/search/:query"
           element={
             <Layout>
-              <h1>Search</h1>
+              <SearchScreen />
+            </Layout>
+          }
+        ></Route>
+        <Route
+          path="/feed/subscriptions"
+          element={
+            <Layout>
+              <h1>
+              <SubscriptionScreen/>
+              </h1>
             </Layout>
           }
         ></Route>
@@ -88,7 +100,7 @@ const App =()=>{
           path="/watch/:id"
           element={
             <Layout>
-              <WatchScreen/>
+              <WatchScreen />
             </Layout>
           }
         ></Route>

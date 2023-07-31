@@ -1,20 +1,28 @@
 import React from "react";
-import numeral from "numeral";
+import moment from "moment";
 import './_comment.scss'
-const Comment=()=>{
+const Comment=({comment})=>{
+  
+  const {
+     authorDisplayName,
+     authorProfileImageUrl,
+     publishedAt,
+     textDisplay,
+   } = comment;
+
  return (
    <div className="comment p-2 d-flex">
      <img
-       src="https://www.pngkey.com/png/full/114-1149878_setting-user-avatar-in-specific-size-without-breaking.png"
+       src={authorProfileImageUrl}
        alt=""
        className="rounded-circle me-3"
      />
      <div className="comment__body">
        <p className="comment__header mb-0">
-         Sumit Dey • {numeral('2023-07-25').format("0.a")}
+          {authorDisplayName}• {moment(publishedAt).fromNow()}
        </p>
        <p className="mb-0">
-        Nice
+        {textDisplay}
        </p>
      </div>
    </div>

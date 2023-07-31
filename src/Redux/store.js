@@ -15,13 +15,24 @@
 //   composeWithDevTools(applyMiddleware(thunk))
 // );
 import videoSlice from "./reducers/video-slice";
-import {configureStore} from "@reduxjs/toolkit"
 import authSlice from "./auth-slice";
+import playingvideoslice from "./reducers/playingvideo-slice";
+import channelSlice from "./reducers/channel-slice";
+import commentsSlice from "./reducers/comments-slice";
+import relatedvideoslice from "./reducers/relatedVideo-slice";
+import searchvideoslice from "./reducers/searchVideo-slice";
+import subscribedChannelslice from "./reducers/subscribedChannels-slice";
+import {configureStore} from "@reduxjs/toolkit"
 const store= configureStore({
   reducer:{
     auth:authSlice.reducer,
     video:videoSlice.reducer,
-    
+    playingVideo:playingvideoslice.reducer,    
+    channel:channelSlice.reducer,
+    comments:commentsSlice.reducer,
+    relatedVideos:relatedvideoslice.reducer,
+    searchvideos:searchvideoslice.reducer,
+    subscribedChannel:subscribedChannelslice.reducer,
   }
 })
 
